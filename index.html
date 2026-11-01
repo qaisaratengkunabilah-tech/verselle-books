@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Versélle Books | Digital Library</title>
+
+  <meta name="description" content="Discover your next favourite book at Versélle Books, your personal digital library.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">V.</span>
+      <span>VERSÉLLE <small>BOOKS</small></span>
+    </a>
+
+    <nav class="nav-links">
+      <button id="allBooksBtn" class="nav-link active" type="button">
+        Home
+      </button>
+
+      <button id="favoritesNav" class="nav-link" type="button">
+        My Favorites
+        <span id="favoriteCount" class="count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-label">YOUR PERSONAL DIGITAL LIBRARY</span>
+
+        <h1>
+          Every book holds<br>
+          <span>a new world.</span>
+        </h1>
+
+        <p>
+          Explore beautiful stories, discover new knowledge
+          and find your next favourite read with Versélle Books.
+        </p>
+
+        <a href="#library" class="hero-button">
+          Explore Library <span>→</span>
+        </a>
+
+        <div class="hero-note">
+          <span>✦</span> Read. Discover. Imagine.
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-decoration"></div>
+        <div class="hero-book">
+          <img
+            src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=700"
+            alt="Beautiful collection of books"
+          >
+        </div>
+
+        <div class="floating-note">
+          <span>♡</span>
+          <div>
+            <strong>Find your story</strong>
+            <small>One book at a time</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIBRARY SECTION -->
+    <section id="library" class="library-section">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">THE COLLECTION</span>
+          <h2>Explore the Library</h2>
+          <p>Find something wonderful to read today.</p>
+        </div>
+
+        <div class="library-mark">V / 01</div>
+      </div>
+
+      <!-- SEARCH -->
+      <form id="searchForm" class="search-form">
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search by book title, author or keyword..."
+          autocomplete="off"
+        >
+
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- CATEGORIES -->
+      <div class="category-area">
+        <span class="category-label">BROWSE BY CATEGORY</span>
+
+        <div id="categoryPills" class="category-pills">
+
+          <button class="category-pill selected"
+            type="button" data-subject="fiction">
+            Fiction
+          </button>
+
+          <button class="category-pill"
+            type="button" data-subject="romance">
+            Romance
+          </button>
+
+          <button class="category-pill"
+            type="button" data-subject="fantasy">
+            Fantasy
+          </button>
+
+          <button class="category-pill"
+            type="button" data-subject="science">
+            Science
+          </button>
+
+          <button class="category-pill"
+            type="button" data-subject="history">
+            History
+          </button>
+
+          <button class="category-pill"
+            type="button" data-subject="mystery">
+            Mystery
+          </button>
+
+          <button class="category-pill"
+            type="button" data-subject="poetry">
+            Poetry
+          </button>
+
+        </div>
+      </div>
+
+      <!-- RESULTS HEADING -->
+      <div class="results-heading">
+        <div>
+          <span id="resultsEyebrow" class="eyebrow">
+            PICK YOUR MOOD
+          </span>
+
+          <h2 id="resultsTitle">Fiction reads</h2>
+        </div>
+
+        <span id="resultCount" class="result-count">
+          Discover books
+        </span>
+      </div>
+
+      <!-- LOADING / ERROR -->
+      <div id="statusMessage" class="status-message">
+        Preparing your library...
+      </div>
+
+      <!-- BOOK GRID -->
+      <div id="bookGrid" class="book-grid"></div>
+
+      <!-- LOAD MORE -->
+      <div class="load-more-container">
+        <button id="loadMoreBtn" class="load-more hidden"
+          type="button">
+          Load More Books <span>↓</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+      <div class="about-content">
+        <span class="eyebrow">OUR LITTLE PHILOSOPHY</span>
+
+        <h2>
+          A space for every<br>
+          curious mind.
+        </h2>
+
+        <p>
+          Versélle Books is a digital library designed to make
+          discovering books simple, enjoyable and accessible.
+          From timeless classics to inspiring discoveries,
+          every reader deserves a story of their own.
+        </p>
+      </div>
+
+      <div class="about-decoration">
+        <span>V.</span>
+        <p>Stories make<br>the world beautiful.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOOK DETAILS MODAL -->
+  <div id="bookModal" class="modal hidden">
+
+    <div class="modal-box">
+
+      <button id="modalClose" class="modal-close"
+        type="button" aria-label="Close">
+        ×
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+  </div>
+
+  <!-- TOAST MESSAGE -->
+  <div id="toast" class="toast"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="#" class="footer-brand">VERSÉLLE BOOKS</a>
+
+    <p>
+      A little world of stories, knowledge & imagination.
+    </p>
+
+    <span>© 2026 Versélle Books. All rights reserved.</span>
+
+    <small>
+      Book information powered by Open Library.
+    </small>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
